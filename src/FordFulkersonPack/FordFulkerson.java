@@ -72,7 +72,7 @@ public class FordFulkerson {
 
     public FordFulkerson(int vertex) {
         this.vertex = vertex;
-        queue = new LinkedList<Integer>();
+        queue = new LinkedList<>();
         visited = new boolean[vertex + 1];
         parent = new int[vertex + 1];
     }
@@ -100,10 +100,9 @@ public class FordFulkerson {
 
     public int runFordFulkerson(Graph graph, int source, int sink) {
         int u, v;
-        int V = graph.getVertexCount();
-        Graph residualGraph = new Graph(V);
-        for (u = 0; u < V; u++) {
-            for (v = 0; v < V; v++) {
+        Graph residualGraph = new Graph(vertex);
+        for (u = 0; u < vertex; u++) {
+            for (v = 0; v < vertex; v++) {
                 residualGraph.getGraph()[u][v] = graph.getGraph()[u][v];
             }
         }
