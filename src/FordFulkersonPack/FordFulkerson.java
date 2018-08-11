@@ -129,8 +129,8 @@ public class FordFulkerson {
     }
 
     public static void main(String[] args) {
-        Graph graph = new Graph(6);
-        graph.addEdge(0, 1, 16);
+        Graph graph = new Graph(9);
+        /*graph.addEdge(0, 1, 16);
         graph.addEdge(0, 2, 13);
         graph.addEdge(1, 2, 10);
         graph.addEdge(1, 3, 12);
@@ -139,13 +139,25 @@ public class FordFulkerson {
         graph.addEdge(3, 2, 9);
         graph.addEdge(3, 5, 20);
         graph.addEdge(4, 3, 7);
-        graph.addEdge(4, 5, 4);
+        graph.addEdge(4, 5, 4);*/
 
+        graph.addEdge(1,2,2);
+        graph.addEdge(1,3,13);
+        graph.addEdge(2,5,12);
+        graph.addEdge(2,4,10);
+        graph.addEdge(3,4,5);
+        graph.addEdge(3,7,6);
+        graph.addEdge(4,5,1);
+        graph.addEdge(4,6,1);
+        graph.addEdge(6,5,2);
+        graph.addEdge(6,7,3);
+        graph.addEdge(5,8,6);
+        graph.addEdge(7,8,2);
         graph.printGraph();
 
-        FordFulkerson fordFulkerson = new FordFulkerson(6);
+        FordFulkerson fordFulkerson = new FordFulkerson(9);
         System.out.println("The max flow is : \n");
-        System.out.println(fordFulkerson.runFordFulkerson(graph, 0, 5));
+        System.out.println(fordFulkerson.runFordFulkerson(graph, 1, 8));
     }
 
 }
