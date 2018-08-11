@@ -81,8 +81,6 @@ public class Huffman {
             node.left = node1;
             node.right = node2;
 
-            root = node;
-
             queue.add(node);
         }
 
@@ -97,18 +95,31 @@ public class Huffman {
         }
 
         int variableTotal = 0;
-        int k = 0;
+        int countVar = -1;
+        int freqCount = 0;
         for (Map.Entry<Character, String> entry : code.entrySet()) {
             int x = freq.get(entry.getKey());
+            freqCount += x;
             int y = entry.getValue().length();
             variableTotal += x * y;
-            System.out.println(entry.getKey() + " " + x * y);
-            k++;
+            countVar++;
+        }
+
+        if (countVar >= 0) {
+            if (countVar == 0) {
+                countVar = 1;
+            }
+            System.out.println();
+            int n = (int) (Math.log(countVar) / Math.log(2));
+            int fixedTotal = freqCount * (n + 1);
+            System.out.println("Variable length: " + variableTotal + " Fixed length : " + fixedTotal);
+            double percentSaved = (double) (fixedTotal - variableTotal) * 100 / fixedTotal;
+            System.out.println("Percentage saved here is: " + String.format("%.2f", percentSaved) + "%");
         }
 
     }
 
     public static void main(String[] args) {
-        buildHuffmanTree("Hello world");
+        buildHuffmanTree("this string will be coded into binary string using huffman algorithm.");
     }
 }
