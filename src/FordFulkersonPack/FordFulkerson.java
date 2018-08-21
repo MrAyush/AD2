@@ -69,12 +69,22 @@ public class FordFulkerson {
     private Queue<Integer> queue;
     private int vertex;
     private int maxFlow;
+    private Graph residualGraph;
+
+    public Graph getResidualGraph() {
+        return residualGraph;
+    }
+
+    public void setResidualGraph(Graph residualGraph) {
+        this.residualGraph = residualGraph;
+    }
 
     public FordFulkerson(int vertex) {
         this.vertex = vertex;
         queue = new LinkedList<>();
         visited = new boolean[vertex + 1];
         parent = new int[vertex + 1];
+        residualGraph = new Graph(vertex);
     }
 
     private boolean hasAugmentingPath(int source, int sink, Graph residualGraph) {
@@ -125,6 +135,7 @@ public class FordFulkerson {
 
             maxFlow += flow;
         }
+        setResidualGraph(residualGraph);
         return maxFlow;
     }
 
