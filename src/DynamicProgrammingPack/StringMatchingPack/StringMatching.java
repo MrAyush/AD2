@@ -62,16 +62,3 @@ public class StringMatching {
         System.out.println("\nMinimum edit distance req to convert " + x + " to " + y + " : " + t);
     }
 }
-/*else {
-                    int t = Math.min(space[i - 1][j], space[i][j - 1]);
-                    int r = Math.min(space[i - 1][j - 1], t);
-                    space[i][j] = Math.min(r, t) + 1;
-                    if (t < r) {
-                        if (t == space[i - 1][j])
-                            b[i][j] = '<';
-                        else
-                            b[i][j] = '|';
-                    } else {
-                        b[i][j] = '+';
-                    }
-                }*/

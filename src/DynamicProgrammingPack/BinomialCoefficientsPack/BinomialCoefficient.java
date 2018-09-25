@@ -21,7 +21,7 @@ class Binomial {
     }
 }
 
-public class BinomialCeoff {
+public class BinomialCoefficient {
     public static void main(String[] args) {
         System.out.println(Binomial.getCoefficient(4, 2));
     }
