@@ -19,9 +19,9 @@ class StringMatches {
                     space[i][j] = space[i - 1][j - 1];
                     b[i][j] = '+';
                 } else if ((space[i - 1][j] >= space[i][j - 1]) && (space[i][j - 1] <= space[i - 1][j - 1])) {
-                        space[i][j] = space[i][j - 1] + 1;
-                        b[i][j] = '<';
-                } else if ((space[i][j - 1] > space[i - 1][j]) && (space[i - 1][j] < space[i - 1][j - 1])){
+                    space[i][j] = space[i][j - 1] + 1;
+                    b[i][j] = '<';
+                } else if ((space[i][j - 1] > space[i - 1][j]) && (space[i - 1][j] < space[i - 1][j - 1])) {
                     space[i][j] = space[i - 1][j] + 1;
                     b[i][j] = '|';
                 } else {
@@ -40,15 +40,20 @@ class StringMatches {
         if (b[i][j] == '+') {
             display(x, y, b, i - 1, j - 1);
             System.out.print(" " + x.charAt(i - 1) + " ->");
-            System.out.print(" " + y.charAt(j - 1) + " ");
+            System.out.print(" " + y.charAt(j - 1));
+            if (x.charAt(i - 1) != y.charAt(j - 1))
+                System.out.print(" (To be substituted)");
+            else
+                System.out.print(" (Matching)");
+
             System.out.println();
         } else if (b[i][j] == '|') {
             display(x, y, b, i - 1, j);
-            System.out.print(" " + x.charAt(i - 1) + " -> 'To be deleted'");
+            System.out.print(" " + x.charAt(i - 1) + " ->   (To be deleted)");
             System.out.println();
         } else {
             display(x, y, b, i, j - 1);
-            System.out.print(" " + y.charAt(j - 1) + " -> 'To be inserted'");
+            System.out.print("   -> " + y.charAt(j - 1) + " (To be inserted)");
             System.out.println();
         }
     }
@@ -56,9 +61,19 @@ class StringMatches {
 
 public class StringMatching {
     public static void main(String[] args) {
-        String x =  "abbcd";   //"LOGARITHM";
-        String y =  "accd";  //"ALGORITHM";
+        String x = "abbcd";   //"LOGARITHM";
+        String y = "accd";  //"ALGORITHM";
         int t = StringMatches.editDistance(x, y);
+        System.out.println("\nMinimum edit distance req to convert " + x + " to " + y + " : " + t);
+        System.out.println("-----------------------------------------------");
+        x = "LOGARITHM";
+        y = "ALGORITHM";
+        t = StringMatches.editDistance(x, y);
+        System.out.println("\nMinimum edit distance req to convert " + x + " to " + y + " : " + t);
+        System.out.println("-----------------------------------------------");
+        x = "accd";
+        y = "abbcd";
+        t = StringMatches.editDistance(x, y);
         System.out.println("\nMinimum edit distance req to convert " + x + " to " + y + " : " + t);
     }
 }

@@ -1,6 +1,5 @@
 package DynamicProgrammingPack.MonotonicPack;
 
-
 import java.util.Arrays;
 
 class Monotonic {
@@ -24,6 +23,7 @@ class Monotonic {
 public class MonotonicLength {
     public static void main(String[] args) {
         int[] a = {2, 4, 3, 5, 1, 7, 6};
-        System.out.println(Monotonic.length(a, a.length));
+        int l = Monotonic.length(a, a.length);
+        System.out.println("Monotonic length: " + l);
     }
 }

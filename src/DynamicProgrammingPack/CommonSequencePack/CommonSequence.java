@@ -18,7 +18,7 @@ class LongestSequence {
                 if (x.charAt(i - 1) == y.charAt(j - 1)) {
                     space[i][j] = space[i - 1][j - 1] + 1;
                     b[i][j] = '+';
-                } else if(space[i - 1][j] >= space[i][j - 1] ) {
+                } else if (space[i - 1][j] >= space[i][j - 1]) {
                     space[i][j] = space[i - 1][j];
                     b[i][j] = '|';
                 } else {
@@ -27,7 +27,7 @@ class LongestSequence {
                 }
             }
         }
-        display(y, b, y.length(), x.length());
+        display(y, b, x.length(), y.length());
         return space[x.length()][y.length()];
     }
 
@@ -36,7 +36,7 @@ class LongestSequence {
             return;
         if (b[i][j] == '+') {
             display(y, b, i - 1, j - 1);
-            System.out.print(" " + y.charAt(i - 1) + " ");
+            System.out.print(" " + y.charAt(j - 1) + " ");
         } else if (b[i][j] == '|') {
             display(y, b, i - 1, j);
         } else {
@@ -47,10 +47,24 @@ class LongestSequence {
 
 public class CommonSequence {
     public static void main(String[] args) {
-        /*Some bug while trying second case*/
         String x = "LOGARITHM"; //"accd";
         String y = "ALGORITHM"; //"abbcd";
         int t = LongestSequence.longestCommonDistance(x, y);
+        System.out.println("\nLongest common sub-sequence " + x + " to " + y + " : " + t);
+        System.out.println("-----------------------------------------------");
+        x = "ALGORITHM";
+        y = "LOGARITHM";
+        t = LongestSequence.longestCommonDistance(x, y);
+        System.out.println("\nLongest common sub-sequence " + x + " to " + y + " : " + t);
+        System.out.println("-----------------------------------------------");
+        x = "abbcd";   //"LOGARITHM";
+        y = "accd";  //"ALGORITHM";
+        t = LongestSequence.longestCommonDistance(x, y);
+        System.out.println("\nLongest common sub-sequence " + x + " to " + y + " : " + t);
+        System.out.println("-----------------------------------------------");
+        x = "accd";
+        y = "abbcd";
+        t = LongestSequence.longestCommonDistance(x, y);
         System.out.println("\nLongest common sub-sequence " + x + " to " + y + " : " + t);
     }
 }

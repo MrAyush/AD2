@@ -23,6 +23,9 @@ class Binomial {
 
 public class BinomialCoefficient {
     public static void main(String[] args) {
-        System.out.println(Binomial.getCoefficient(4, 2));
+        int n = 4;
+        int k = 2;
+        int bc = Binomial.getCoefficient(4, 2);
+        System.out.println("Binomial coefficient, C(" + n + ", " + k + ") : " + bc);
     }
 }

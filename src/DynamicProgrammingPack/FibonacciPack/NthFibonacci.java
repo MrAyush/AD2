@@ -14,6 +14,20 @@ class Fibonacci {
 
 public class NthFibonacci {
     public static void main(String[] args) {
-        System.out.println(Fibonacci.fib(5));
+        int pos = 5;
+        int n = Fibonacci.fib(pos);
+        System.out.println("Fibonacci number at position " + pos + " : " + n);
+        System.out.println("-----------------------------------------------");
+        pos = 7;
+        n = Fibonacci.fib(pos);
+        System.out.println("Fibonacci number at position " + pos + " : " + n);
+        System.out.println("-----------------------------------------------");
+        pos = 2;
+        n = Fibonacci.fib(pos);
+        System.out.println("Fibonacci number at position " + pos + " : " + n);
+        System.out.println("-----------------------------------------------");
+        pos = 10;
+        n = Fibonacci.fib(pos);
+        System.out.println("Fibonacci number at position " + pos + " : " + n);
     }
 }
